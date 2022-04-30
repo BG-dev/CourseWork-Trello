@@ -1,16 +1,87 @@
 [
     {
-        "id": 1,
-        "name": "Nikita",
-        "login": "nik.azizoff2013",
-        "password": "12002233",
-        "role": "admin"
+        "id": "8531fd20-60c4-45c5-aa0c-c757252e063e",
+        "login": "Nikita",
+        "password": "$2b$12$Ua8IG4i7IEyDFhYcfdpqNu/ZaDCU9Wsga2bYrkW2oFkNwae/U85S."
     },
     {
-        "id": 2,
-        "name": "Anton",
-        "login": "anton2022",
-        "password": "88888888",
-        "role": "user"
+        "id": "76bb35c2-858b-4753-a780-dc4103d48b5d",
+        "login": "NikitaAz",
+        "password": "$2b$12$BD82JIP0bj9rOlLlr1Qiku1.EAwjsLd4B7uGRdn827PKr08QOOAna"
+    },
+    {
+        "id": "89f5cc2f-94db-4d78-9497-2ad1e31242ee",
+        "login": "NikitaAz",
+        "password": "$2b$12$kfm7KkVYWE3/lhN7p1k2p.AkJDO/qbDcDYpD/hSgwyyvDjTMMIski"
+    },
+    {
+        "id": "e01eb4ae-54eb-4778-8f60-e527148ac66d",
+        "login": "NikitaAz",
+        "password": "$2b$12$hKydc63yRnBKbpRI3lir0OHWNz55d4rqQnD/FxTsv90IFeVBC0gLi"
+    },
+    {
+        "id": "7baf4691-0357-499d-8967-f100f3a5e4fc",
+        "login": "nikitq",
+        "password": "$2b$12$pyqax0NPzzrInubl1iUnqeVE5iYcKP86EqpNk8Ny7eyPE4SpzlWRu"
+    },
+    {
+        "id": "073e2427-24e1-4662-bdff-41a298e060fb",
+        "login": "NikitaAz",
+        "password": "$2b$12$xm4VYx4KNqqWNsRSejkQHOGpZj2JxoMw8gFPo.FkIWGClgD2h2p4i"
+    },
+    {
+        "id": "835b05ae-eb4c-4222-9948-4915a2bf453f",
+        "login": "nikitq",
+        "password": "$2b$12$aSWn16QJ8.4ASzzUWoPQZe30G8IBAjudC/JADAe5vIjVthscSBspu"
+    },
+    {
+        "id": "6ab24b1d-b032-45b3-ab23-e2c3191f6ec9",
+        "login": "NikitaAz",
+        "password": "$2b$12$EI9ISquQwyA84rRo2MWaWOo5Do.ra.MBPpRyHWXzX0PdtrHSQdjDK"
+    },
+    {
+        "id": "13efb5f7-bf77-45e6-8ec0-cd69a311a83a",
+        "login": "NikitaAz",
+        "password": "$2b$12$tM5.GJsi3y3QHEUXtRHzbeM7PbfyHczbPwWooRjKixWunaznufENC"
+    },
+    {
+        "id": "c40fd033-f150-4ea5-9e76-cba566cb4b4b",
+        "login": "NikitaAz",
+        "password": "$2b$12$RleizlrjFKygA.3z93G/F.aGnzFmiKUF0c2y7lxXB26XGfOCGVeCO"
+    },
+    {
+        "id": "27c5cf9f-3890-48d4-afbb-44fedf39e18a",
+        "login": "NikitaAz",
+        "password": "$2b$12$uYDgvvP7mQi..fJbUWNsxu3WRhue87NdwQKAXUF.bDaiDnT7VMRp6"
+    },
+    {
+        "id": "bebf0cac-bc61-47e4-a211-e3fca987f278",
+        "login": "NikitaAz",
+        "password": "$2b$12$WbFELhaJVphlVtH3UjttPOteFu785HR4p.HogCHIEww0n/jEA.wGS"
+    },
+    {
+        "id": "594d8f9c-e388-4dc7-928f-529d95416e5c",
+        "login": "NikitaAz",
+        "password": "$2b$12$niXZgoYF0dsjEFO8Bne37uEFBthGNVQMNN3qqFQI7AdDLS9KTm5DK"
+    },
+    {
+        "id": "6df2e876-16bc-42cd-8d05-6c7588531001",
+        "login": "NikitaAz",
+        "password": "$2b$12$4cgDF2SHTU8z53cNMeV55eXgOfw4vW8Q9mgLoThdUgz.xopr3NaLa"
+    },
+    {
+        "id": "408a7b32-b04b-471b-ab92-c0f86cf4c178",
+        "login": "dsds",
+        "password": "$2b$12$BIB/assTe.fBhBldP.fW1u6ffAq8U8243sOZp4zWB9XnjGFLthVpO"
+    },
+    {
+        "id": "de5d979e-7b7b-4502-b252-6f8f0b325b2b",
+        "login": "NikitaAzizov",
+        "password": "$2b$12$.GuV0vP1MZalkWO1TOAeJuWK.p6P6AJgkwOXN9sy5infFSGf1XGNe"
+    },
+    {
+        "id": "b9fb7daa-7942-4046-bfd9-617224ddebdc",
+        "login": "nik.azizoff2016",
+        "password": "$2b$12$KwNOfgMtC8hDbAGfGjBRUOpnhtKb.Csq5NF2ewhHwHFmlUxv8qbc."
     }
 ]

@@ -14,7 +14,7 @@ async function addUser(newUserData){
 
     const candidate = findUser(newUserData)
     if(candidate)
-        return res.status(401).send({message: "This user already exists"})
+        throw new Error("This user already exists")
 
     const hashedPassword = await bcrypt.hash(newUserData.password, 12)
     const newUser = {
@@ -23,7 +23,8 @@ async function addUser(newUserData){
         password: hashedPassword
     }
     
-    writeDataToJsonFile(newUser, USERS_FILE)
+    const newUsers = [...users, newUser]
+    writeDataToJsonFile(newUsers, USERS_FILE)
 }
 
 async function loginUser(userData){
@@ -32,13 +33,14 @@ async function loginUser(userData){
         throw new Error(error.details[0].message)
 
     const user = findUser(userData)
+
     if(!user)
-        return res.status(400).send({message: "This user no exists"})
+        throw new Error("This user no exists")
 
     const isMatch = await bcrypt.compare(userData.password, user.password)
 
     if(!isMatch)
-        return res.status(400).send({message: "Password is incorrect"})
+        throw new Error("Password is incorrect")
     
     const token = jwt.sign(
         { userId: user.id },
@@ -52,7 +54,7 @@ async function loginUser(userData){
 
 const findUser = user => 
     users
-        .find(elem => elem.login === user.login && elem.password === user.password)
+        .find(elem => elem.login === user.login)
 
 module.exports = {
     addUser,

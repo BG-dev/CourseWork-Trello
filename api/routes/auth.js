@@ -3,7 +3,7 @@ const { addUser, loginUser } = require('../../service/userService')
 
 const router = express.Router()
 
-router.post('/register', async(req, res) => {
+router.post('/register', async(req, res, next) => {
     try {
         const {login, password} = req.body
         const user = {
@@ -16,25 +16,26 @@ router.post('/register', async(req, res) => {
             message: "User was created"
         })
     } catch (error) {
-        res.status(500).send({ message: 'Resgister error' })
+        next(error)
     }
 })
 
-router.post('/login', async(req, res) => {
+router.post('/login', async(req, res, next) => {
     try {
         const {login, password} = req.body
         const user = {
             login,
             password
         }
-        
+
         const loginData = await loginUser(user)
+
         res.status(201).send({
             loginData,
-            message: "User was created"
+            message: "Welcome " + login
         })
     } catch (error) {
-        res.status(500).send({ message: 'Resgister error' })
+        next(error)
     }
 })
 
