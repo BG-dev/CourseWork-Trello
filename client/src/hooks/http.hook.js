@@ -4,18 +4,18 @@ export const useHttp = () => {
     const [ loading, setLoading ] = useState(false)
     const [ error, setError ] = useState(null)
 
-    const request = useCallback( async (url, method = 'GET', body = null, headers = {
-        'Content-type': 'application/json'
-    }) => {
+    const request = useCallback( async (url, method = 'GET', body = null, headers = {}) => {
         setLoading(true)
         try {
-            const jsonBody = JSON.stringify(body)
-            const response = await fetch(url, {method, headers, body: jsonBody})
-            const data = response.data
-            
+            if(body){
+                body = JSON.stringify(body)
+                headers['Content-type'] = 'application/json'
+            }
+            const response = await fetch(url, {method, headers, body})
+            const data = await response.json()
             if(!response.ok)
-                throw new Error(response.message)
-
+                throw new Error(data.message)
+            
             setLoading(false)
             return data
         } catch (error) {
@@ -24,6 +24,8 @@ export const useHttp = () => {
             throw error            
         }
     }, [])
+
+    const clearError = useCallback(() => setError(null), [])
     
-    return { loading, request, error }
+    return { loading, request, error, clearError }
 }

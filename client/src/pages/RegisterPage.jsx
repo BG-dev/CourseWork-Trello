@@ -1,10 +1,17 @@
-import React, {useRef} from "react";
+import React, {useEffect, useRef} from "react";
 import { useFormik } from 'formik'
 import { useHttp } from "../hooks/http.hook";
+import { useMessage } from "../hooks/message.hook"
 
 function RegisterPage() {
 
-    const { loading, request } = useHttp()
+    const message = useMessage()
+    const { loading, request, error, clearError } = useHttp()
+
+    useEffect(() => {
+        message(error)
+        clearError()
+    }, [error, message, clearError])
 
     const form = useRef();
     const formik = useFormik({
@@ -22,7 +29,7 @@ function RegisterPage() {
     const registerHandler = async (values) => {
         try {
             const data = await request('/api/auth/register', 'POST', {...values})
-            console.log(data)
+            message(data.message)
         } catch (error) {
             
         }

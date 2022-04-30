@@ -6,7 +6,7 @@ function logError(err, req, res, next){
 }
 
 function sendError(err, req, res, next){
-    res.send({message: `${err}`})
+    res.status(400).send({message: `${err}`})
 }
 
 module.exports = {
