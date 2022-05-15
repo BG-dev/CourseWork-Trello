@@ -2,9 +2,8 @@ const express = require('express')
 const dotenv = require('dotenv')
 const helmet = require("helmet");
 const bodyparser = require('body-parser')
-const usersRoutes = require('./routes/users')
-const loginRoutes = require('./routes/login')
 const boardsRoutes = require('./routes/boards')
+const usersRoutes = require('./routes/users')
 const cardsRoutes = require('./routes/cards')
 const authRoutes = require('./routes/auth')
 const logger = require('./middlewares/logger')
@@ -19,11 +18,10 @@ app.use(bodyparser.urlencoded({extended:false}))
 app.use(bodyparser.json())
 app.use(helmet());
 
-app.use('/users', usersRoutes)
-app.use('/login', loginRoutes)
 app.use('/boards', boardsRoutes)
 app.use('/cards', cardsRoutes)
 app.use('/api/auth', authRoutes)
+app.use('/users', usersRoutes)
 
 app.use(logError)
 app.use(sendError)

@@ -15,7 +15,6 @@ export const useHttp = () => {
             const data = await response.json()
             if(!response.ok)
                 throw new Error(data.message)
-            
             setLoading(false)
             return data
         } catch (error) {

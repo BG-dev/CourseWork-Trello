@@ -2,11 +2,14 @@ import React, {useEffect, useRef} from "react";
 import { useFormik } from 'formik'
 import { useHttp } from "../hooks/http.hook";
 import { useMessage } from "../hooks/message.hook"
+import { useNavigate, NavLink } from "react-router-dom"
+import { validateNewUser } from "../validators/userValidator"
 
 function RegisterPage() {
 
     const message = useMessage()
     const { loading, request, error, clearError } = useHttp()
+    const navigate = useNavigate()
 
     useEffect(() => {
         message(error)
@@ -20,6 +23,8 @@ function RegisterPage() {
             password: '',
             passwordRepeat: ''
         },
+        validationSchema: form => 
+            validateNewUser(form.values),
         onSubmit: values => {
             registerHandler(values)
             formik.resetForm();
@@ -28,10 +33,12 @@ function RegisterPage() {
     
     const registerHandler = async (values) => {
         try {
+            console.log(formik)
             const data = await request('/api/auth/register', 'POST', {...values})
             message(data.message)
+            navigate('/')
         } catch (error) {
-            
+            message(error.message)
         }
     }
 
@@ -45,7 +52,10 @@ function RegisterPage() {
                 <input type="password" id="password" name="password" onChange={formik.handleChange} value={formik.values.password}/>
                 <label htmlFor="passwordRepeat">Repeat password</label>
                 <input type="password" id="passwordRepeat" name="passwordRepeat" onChange={formik.handleChange} value={formik.values.passwordRepeat}/>
-                <button type="submit" disabled={loading}>Register</button>
+                <div className="row">
+                    <button className="btn waves-effect waves-light col" type="submit" disabled={loading} name="action">Register</button>
+                    <NavLink to="/login" className="waves-effect waves-light btn col offset-s1">Login</NavLink>
+                </div>
             </form>
         </div>
     )

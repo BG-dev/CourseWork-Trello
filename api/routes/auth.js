@@ -1,5 +1,6 @@
 const express = require("express"); 
 const { addUser, loginUser } = require('../../service/userService')
+const logger = require('../middlewares/logger')
 
 const router = express.Router()
 
@@ -12,9 +13,9 @@ router.post('/register', async(req, res, next) => {
         }
 
         await addUser(user)
-        res.status(201).send({
-            message: "User was created"
-        })
+        const message = `User ${user.login} was created`
+        logger.info(message)
+        res.status(201).send({ message })
     } catch (error) {
         next(error)
     }
@@ -29,10 +30,11 @@ router.post('/login', async(req, res, next) => {
         }
 
         const loginData = await loginUser(user)
-
+        const message = `User ${user.login} was logged in`
+        logger.info(message)
         res.status(201).send({
-            loginData,
-            message: "Welcome " + login
+            ...loginData,
+            message
         })
     } catch (error) {
         next(error)

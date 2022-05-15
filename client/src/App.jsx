@@ -1,18 +1,31 @@
-import React from 'react';
-import 'materialize-css'
-import {Routes, Route} from 'react-router-dom'
-import { AuthPage, RegisterPage, ErrorPage } from './pages'
+import React, { useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import Navbar from './components/Navbar';
+import { useAuth } from './hooks/auth.hook';
+import { useRoutes } from './hooks/routes.hook'
 
 function App() {
 
+  const { login, storageName } = useAuth()
+  const user = useSelector(state => state.userReducer.user)
+  const isAuthenticated = !!user.token
+  const routes = useRoutes(isAuthenticated)
+
+
+  useEffect(() => {
+    const data = JSON.parse(localStorage.getItem(storageName))
+
+      if(data && data.token && data.userId && data.login)
+          login(data.token, data.login, data.userId)
+  }, [user.token, login, storageName ])
+
   return (
-    <div className="container">
-      <Routes>
-        <Route path='/' element={<AuthPage/>}/>
-        <Route path='/register' element={<RegisterPage/>}/>
-        <Route path='*' element={<ErrorPage/>}/>
-      </Routes>
-    </div>
+    <>
+      {isAuthenticated && <Navbar/>}
+      <div className="container">
+        {routes}
+      </div>
+    </>
   );
 }
 

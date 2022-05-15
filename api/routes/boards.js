@@ -1,5 +1,6 @@
 const express = require("express"); 
 const { authUser, authRole } = require('../middlewares/auth')
+const logger = require('../middlewares/logger')
 const { addBoard, updateBoard, deleteBoard } = require('../../service/boardService')
 
 const router = express.Router()
@@ -11,7 +12,9 @@ router.post('/', authUser, authRole('admin'), async (req, res, next) => {
             throw new Error('board data is undefined')
 
         await addBoard(boardData)
-        res.status(200).send({message: 'Board successfully added to the database'})   
+        const message = 'Board successfully added to the database'
+        logger.info(message)
+        res.status(200).send({ message })   
     } catch (error) {
         next(error)
     }  
@@ -25,7 +28,9 @@ router.put('/:id', authUser, authRole('admin'), async (req, res) => {
             throw new Error('data is undefined')
 
         await updateBoard(id, board)
-        res.status(200).send({message: 'Board successfully updated in the database'})   
+        const message = 'Board successfully updated in the database'
+        logger.info(message)
+        res.status(200).send({ message })   
     } catch (error) {
         next(error)
     }
@@ -39,7 +44,9 @@ router.delete('/:id', authUser, authRole('admin'), async (req, res) => {
             throw new Error('id is undefined')
     
         deleteBoard(id)
-        res.status(200).send({message: 'Board has been deleted!'})    
+        const message = 'Board has been deleted'
+        logger.info(message)
+        res.status(200).send({ message })    
     } catch (error) {
         next(error)
     }

@@ -3,7 +3,8 @@ const { writeDataToJsonFile } = require('./commandHelper')
 const users = require('../integration/databases/users.json')
 const bcrypt = require('bcrypt')
 const uuid = require('uuid');
-const jwt = require('jsonwebtoken')
+const jwt = require('jsonwebtoken');
+const { getElementFromArrayById } = require('./arrayService');
 
 const USERS_FILE = 'users.json'
 
@@ -48,15 +49,19 @@ async function loginUser(userData){
         { expiresIn: '1h' }
     )
 
-    return {token, userId: user.id}
+    return {token, login: userData.login, userId: user.id}
 }
 
 
 const findUser = user => 
     users
-        .find(elem => elem.login === user.login)
+        .find(elem => elem.login.toLowerCase() === user.login.toLowerCase())
+
+const findUserById = userId =>
+    getElementFromArrayById(users, userId)
 
 module.exports = {
     addUser,
-    loginUser
+    loginUser,
+    findUserById
 }

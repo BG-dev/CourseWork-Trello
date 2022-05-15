@@ -1,7 +1,32 @@
 [
     {
-        "id": "0d328f75-d505-4dc2-8857-63fc8136ed57",
-        "login": "nikitaAziz",
-        "password": "$2b$12$9Hr6WhGj1Vc6Hi0puPGO/.fCah8mVSeWjRlgwebe9fdI04jYbbFWa"
+        "id": "152fb13e-2999-48e3-9dd2-af0027708cfe",
+        "login": "Nikita",
+        "password": "$2b$12$OKG8JxrICGdbqh11IcY/Y.8fNMOYRRtwqlPwusjf4NQ9r67RCn4oa"
+    },
+    {
+        "id": "f9f087af-6e7f-4732-b1e3-1ae8f26beadc",
+        "login": "Sanya",
+        "password": "$2b$12$LlVPKaJALEjgabGW/B6PeucFzbQbGJPcLg52HWN80bYoIS6XjOu0m"
+    },
+    {
+        "id": "165807dd-652f-485a-bf8f-ff45582e8739",
+        "login": "Fuck",
+        "password": "$2b$12$7dupILsNTHOI6YWiC4yaietzq/8AAGnxNHJZVXk0UDpo.WwvH3Tk."
+    },
+    {
+        "id": "42b567dd-e937-4298-b217-337434c6fac2",
+        "login": "LohPetya",
+        "password": "$2b$12$OKG8JxrICGdbqh11IcY/Y.8fNMOYRRtwqlPwusjf4NQ9r67RCn4oa"
+    },
+    {
+        "id": "1b5ab9fc-1648-4655-a77c-a26d595203ff",
+        "login": "Vicki",
+        "password": "$2b$12$tUlO255S66G6Is1e3pm.zuC8CtiJxVGXjxw5.gtEAzmStRNCJbtPy"
+    },
+    {
+        "id": "7d663761-3630-4426-b555-80d240a5a7d9",
+        "login": "kiki",
+        "password": "$2b$12$ot5AkhNDvtM/4T7L1RjHQObi4qIHiQ0/HMxYdou733obPIt/MGSOG"
     }
 ]
