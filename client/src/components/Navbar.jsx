@@ -19,6 +19,7 @@ function Navbar() {
               <a href="/" className="brand-logo">TimeM</a>
               <ul id="nav-mobile" className="right hide-on-med-and-down">
                 <li><NavLink to="/profile">Profile</NavLink></li>
+                <li><NavLink to="/boards">My boards</NavLink></li>
                 <li><a href="/" onClick={logoutHandler}>Logout</a></li>
               </ul>
             </div>

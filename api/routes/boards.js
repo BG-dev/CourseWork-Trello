@@ -1,9 +1,24 @@
 const express = require("express"); 
 const { authUser, authRole } = require('../middlewares/auth')
 const logger = require('../middlewares/logger')
-const { addBoard, updateBoard, deleteBoard } = require('../../service/boardService')
+const { getBoards, addBoard, updateBoard, deleteBoard } = require('../../service/boardService')
 
 const router = express.Router()
+
+router.get('/', authUser, async (req, res, next) => {
+    try {
+        const boards = await getBoards()
+
+        const message = 'Boards successfully got'
+        logger.info(message)
+        res.status(200).send({
+            boards,
+            message
+        })
+    } catch (error) {
+        next(error)
+    }
+})
 
 router.post('/', authUser, authRole('admin'), async (req, res, next) => {
     try {

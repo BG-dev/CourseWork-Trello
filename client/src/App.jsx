@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import Navbar from './components/Navbar';
+import { Navbar } from './components';
 import { useAuth } from './hooks/auth.hook';
 import { useRoutes } from './hooks/routes.hook'
 

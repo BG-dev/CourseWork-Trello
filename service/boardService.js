@@ -8,11 +8,17 @@ const cards = require('../integration/databases/cards.json')
 const BOARDS_FILE = 'boards.json'
 const CARDS_FILE = 'cards.json'
 
+async function getBoards(){
+    const boardsList = await getBoardsFromFile()
+
+    return boardsList
+}
+
 async function addBoard(newBoardData){
     const { error } = validateBoard(newBoardData)
     if(error)
         throw new Error(error.details[0].message)
-
+    
     const board = await createBoardInTrello(newBoardData)
     addBoardToFile(board)
 }
@@ -43,6 +49,13 @@ function addBoardToFile(board){
     writeDataToJsonFile(updatedBoards, BOARDS_FILE)
 }
 
+function getBoardsFromFile(){
+    if(!boards || boards.length === 0)
+        throw new Error('Boards list is empty')
+    
+    return boards
+}
+
 function updateBoardInFile(board){
     if(!board)
         throw new Error('Board is undefined')
@@ -68,6 +81,7 @@ async function deleteBoardCardsFromFile(boardId){
 }
 
 module.exports = {
+    getBoards,
     addBoard,
     updateBoard,
     deleteBoard

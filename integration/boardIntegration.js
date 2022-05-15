@@ -4,7 +4,6 @@ const getDateNow = require('../service/dateService')
 async function createBoardInTrello(boardData){
     if(!boardData)
         throw new Error('Board data is undefined')
-
     const url = process.env.URL
     const response = await axios.post(`${url}/1/boards`, {
         name: boardData.name,

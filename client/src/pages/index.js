@@ -3,5 +3,6 @@ import RegisterPage from "./RegisterPage";
 import ErrorPage from "./ErrorPage";
 import ProfilePage from "./ProfilePage";
 import HomePage from "./HomePage";
+import MyBoards from "./MyBoards";
 
-export { AuthPage, RegisterPage, ErrorPage, ProfilePage, HomePage }
+export { AuthPage, RegisterPage, ErrorPage, ProfilePage, HomePage, MyBoards }
