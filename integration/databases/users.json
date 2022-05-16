@@ -28,5 +28,10 @@
         "id": "7d663761-3630-4426-b555-80d240a5a7d9",
         "login": "kiki",
         "password": "$2b$12$ot5AkhNDvtM/4T7L1RjHQObi4qIHiQ0/HMxYdou733obPIt/MGSOG"
+    },
+    {
+        "id": "26db0051-2313-45c5-be37-3cddc668c8a6",
+        "login": "TKTK",
+        "password": "$2b$12$52516fs38Zr7yFHn.QDH2uvcH/iW4B0gla5VvZjLf8ep9bbYBx/fq"
     }
 ]
