@@ -7,6 +7,7 @@ import {
   ProfilePage,
   HomePage,
   MyBoards,
+  BoardPage,
 } from "../pages";
 
 export const useRoutes = (isAuthenticated) => {
@@ -16,6 +17,7 @@ export const useRoutes = (isAuthenticated) => {
         <Route path="/" element={<HomePage />} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/boards" element={<MyBoards />} />
+        <Route path="/boards/:id" element={<BoardPage />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     );

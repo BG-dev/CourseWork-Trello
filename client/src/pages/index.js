@@ -4,5 +4,14 @@ import ErrorPage from "./ErrorPage";
 import ProfilePage from "./ProfilePage";
 import HomePage from "./HomePage";
 import MyBoards from "./MyBoards/MyBoards";
+import BoardPage from "./BoardPage/BoardPage";
 
-export { AuthPage, RegisterPage, ErrorPage, ProfilePage, HomePage, MyBoards };
+export {
+  AuthPage,
+  RegisterPage,
+  ErrorPage,
+  ProfilePage,
+  HomePage,
+  MyBoards,
+  BoardPage,
+};

@@ -1,47 +1,12 @@
 [
-  {
-    "id": "152fb13e-2999-48e3-9dd2-af0027708cfe",
-    "login": "Nikita",
-    "password": "$2b$12$OKG8JxrICGdbqh11IcY/Y.8fNMOYRRtwqlPwusjf4NQ9r67RCn4oa"
-  },
-  {
-    "id": "f9f087af-6e7f-4732-b1e3-1ae8f26beadc",
-    "login": "Sanya",
-    "password": "$2b$12$LlVPKaJALEjgabGW/B6PeucFzbQbGJPcLg52HWN80bYoIS6XjOu0m"
-  },
-  {
-    "id": "165807dd-652f-485a-bf8f-ff45582e8739",
-    "login": "Fuck",
-    "password": "$2b$12$7dupILsNTHOI6YWiC4yaietzq/8AAGnxNHJZVXk0UDpo.WwvH3Tk."
-  },
-  {
-    "id": "42b567dd-e937-4298-b217-337434c6fac2",
-    "login": "LohPetya",
-    "password": "$2b$12$OKG8JxrICGdbqh11IcY/Y.8fNMOYRRtwqlPwusjf4NQ9r67RCn4oa"
-  },
-  {
-    "id": "1b5ab9fc-1648-4655-a77c-a26d595203ff",
-    "login": "Vicki",
-    "password": "$2b$12$tUlO255S66G6Is1e3pm.zuC8CtiJxVGXjxw5.gtEAzmStRNCJbtPy"
-  },
-  {
-    "id": "7d663761-3630-4426-b555-80d240a5a7d9",
-    "login": "kiki",
-    "password": "$2b$12$ot5AkhNDvtM/4T7L1RjHQObi4qIHiQ0/HMxYdou733obPIt/MGSOG"
-  },
-  {
-    "id": "26db0051-2313-45c5-be37-3cddc668c8a6",
-    "login": "TKTK",
-    "password": "$2b$12$52516fs38Zr7yFHn.QDH2uvcH/iW4B0gla5VvZjLf8ep9bbYBx/fq"
-  },
-  {
-    "id": "36fd1030-a5a6-4379-a0af-d5ddb7a7d1ef",
-    "login": "Denchik_LOH",
-    "password": "$2b$12$D9jOq92J2bnjbxsJr/HTKe4kA3SnuukjPXgQUbXBMmEoLJAfFx5uC"
-  },
-  {
-    "id": "be6ea048-7ac3-46c5-9335-5b707d6fe7a2",
-    "login": "Xuy",
-    "password": "$2b$12$OKG8JxrICGdbqh11IcY/Y.8fNMOYRRtwqlPwusjf4NQ9r67RCn4oa"
-  }
+    {
+        "id": "4e9b53fc-8d98-4801-9733-cebad45cf241",
+        "login": "Nikita",
+        "password": "$2b$12$tQrPT093yO0EEuvEegoxIeKX7WHf1qSaqRA6Uy.8rAOH2cNkSDqWy"
+    },
+    {
+        "id": "54c7bdd6-e97d-4a8f-b33c-2d8fcc1faf45",
+        "login": "Kiril",
+        "password": "$2b$12$5Xmkb57VVrjVXsi09.vBI.b2daHyCi.Tv.UnKGlwMBdJrug9u5pEq"
+    }
 ]
