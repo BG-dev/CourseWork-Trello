@@ -4,6 +4,8 @@ import { Navbar } from "./components";
 import { useAuth } from "./hooks/auth.hook";
 import { useRoutes } from "./hooks/routes.hook";
 
+import "./scss/colorize.scss";
+
 function App() {
   const { login, storageName } = useAuth();
   const user = useSelector((state) => state.userReducer.user);

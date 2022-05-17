@@ -1,3 +1,11 @@
 .modal {
   width: 40%;
 }
+
+.select-color {
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 12px;
+  }
+}

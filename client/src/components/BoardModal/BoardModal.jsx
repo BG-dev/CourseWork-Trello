@@ -1,22 +1,35 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { useFormik } from "formik";
 import { useHttp } from "../../hooks/http.hook";
 import { useMessage } from "../../hooks/message.hook";
+import { Badge } from "../../components";
 
 import "./BoardModal.scss";
 
 function BoardModal({ modalName }) {
+  const colors = [
+    "blue",
+    "orange",
+    "green",
+    "red",
+    "purple",
+    "pink",
+    "lime",
+    "sky",
+    "grey",
+  ];
+
   const { request, error, clearError } = useHttp();
+  const [selectedColor, setSelectedColor] = useState(colors[0]);
   const message = useMessage();
   const form = useRef();
   const formik = useFormik({
     initialValues: {
       title: "",
       description: "",
-      color: "red",
     },
     onSubmit: (values) => {
-      addBoardHandler(values);
+      addBoardHandler(values, selectedColor);
       formik.resetForm();
     },
   });
@@ -26,7 +39,7 @@ function BoardModal({ modalName }) {
     clearError();
   }, [error, message, clearError]);
 
-  const addBoardHandler = async (values) => {
+  const addBoardHandler = async (values, color) => {
     if (!values.title || !values.description)
       throw new Error("Title or description is empty");
 
@@ -38,7 +51,7 @@ function BoardModal({ modalName }) {
       board: {
         name: values.title,
         desc: values.description,
-        color: values.color,
+        color: color,
       },
     });
     console.log(data);
@@ -48,7 +61,7 @@ function BoardModal({ modalName }) {
   return (
     <div id={modalName} className="modal">
       <div className="modal-content">
-        <h4>Add new board</h4>
+        <h4>New board</h4>
         <form
           className="feedback__form"
           ref={form}
@@ -70,15 +83,27 @@ function BoardModal({ modalName }) {
             onChange={formik.handleChange}
             value={formik.values.description}
           />
-          <div className="row">
-            <button
-              className="btn waves-effect waves-light col"
-              type="submit"
-              name="action"
-            >
-              Add
-            </button>
+          <label>Select board color</label>
+          <div className="select-color">
+            <ul className="select-color__list">
+              {colors.map((color, index) => (
+                <li key={index} className="select-color__list-item">
+                  <Badge
+                    onClick={() => setSelectedColor(color)}
+                    color={color}
+                    isActive={selectedColor === color}
+                  />
+                </li>
+              ))}
+            </ul>
           </div>
+          <button
+            className="btn waves-effect waves-light col"
+            type="submit"
+            name="action"
+          >
+            Add new board
+          </button>
         </form>
       </div>
     </div>

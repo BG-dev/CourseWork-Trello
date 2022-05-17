@@ -1,0 +1,16 @@
+.my-boards {
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  &__add-new {
+    display: flex;
+    align-items: center;
+  }
+
+  &__add-text {
+    margin-left: 10px;
+  }
+}
