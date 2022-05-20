@@ -16,7 +16,7 @@ function Navbar() {
 
   return (
     <nav>
-      <div className="nav-wrapper">
+      <div className="nav-wrapper blue-grey lighten-1">
         <a href="/" className="brand-logo">
           TimeM
         </a>

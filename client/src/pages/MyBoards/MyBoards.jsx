@@ -32,8 +32,7 @@ function MyBoards() {
   return (
     <div className="my-boards">
       <div className="my-boards__add-new">
-        <AddButton modalName={MODAL_NAME} />
-        <h4 className="my-boards__add-text">Add new board</h4>
+        <AddButton modalName={MODAL_NAME} buttonText={"Add New Board"} />
       </div>
       <BoardModal modalName={MODAL_NAME} />
       <ul className="my-boards__list">

@@ -2,5 +2,6 @@
   &__lists {
     display: flex;
     justify-content: space-between;
+    flex-basis: auto;
   }
 }

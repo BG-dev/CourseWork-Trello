@@ -37,16 +37,16 @@ function CardsList({ list, boardId }) {
   if (loading) return <h1>Loading...</h1>;
 
   return (
-    <div>
+    <div className="list">
       <h3>{list && list.name}</h3>
-      <ul className="cards__list">
+      <ul className="cards-list">
         {cards &&
           cards.map((card) => (
-            <li key={card.id}>
+            <li className="cards-list__item" key={card.id}>
               <Card card={card} />
             </li>
           ))}
-        <AddButton modalName={MODAL_NAME} />
+        <AddButton modalName={MODAL_NAME} buttonText={"Add New Card"} />
         <CardModal modalName={MODAL_NAME} boardId={boardId} list={list} />
       </ul>
     </div>

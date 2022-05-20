@@ -28,15 +28,11 @@ function Board({ board }) {
       <h1 className="board__name">{board && board.name}</h1>
       {boardLists && (
         <ul className="board__lists">
-          <li id="to-do-list" className="board__list">
-            <CardsList list={boardLists[0]} boardId={board.id} />
-          </li>
-          <li id="doing-list" className="board__list">
-            <CardsList list={boardLists[1]} boardId={board.id} />
-          </li>
-          <li id="done-list" className="board__list">
-            <CardsList list={boardLists[2]} boardId={board.id} />
-          </li>
+          {boardLists.map((boardList) => (
+            <li id={`${boardList.name}-list`} key={boardList.id}>
+              <CardsList list={boardList} boardId={board.id} />
+            </li>
+          ))}
         </ul>
       )}
     </div>

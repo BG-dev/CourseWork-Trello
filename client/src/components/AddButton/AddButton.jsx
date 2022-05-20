@@ -2,13 +2,15 @@ import React from "react";
 
 import "./AddButton.scss";
 
-function AddButton({ modalName }) {
+function AddButton({ modalName, buttonText }) {
   return (
-    <a
-      href={`#${modalName}`}
-      className="add-button modal-trigger btn-floating btn-large waves-effect waves-light red"
-    >
-      <i className="material-icons">add</i>
+    <a className="modal-trigger" href={`#${modalName}`}>
+      <div className="add-button btn-floating btn-large waves-effect waves-light red">
+        <i className="material-icons blue-grey lighten-1">add</i>
+      </div>
+      <span className="modal-trigger__text blue-grey-text text-lighten-1">
+        {buttonText}
+      </span>
     </a>
   );
 }

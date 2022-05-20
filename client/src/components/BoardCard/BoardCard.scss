@@ -3,8 +3,12 @@
 }
 
 .card {
-  width: 330px;
+  width: 325px;
   margin-bottom: 30px;
+
+  &__content {
+    overflow-wrap: break-word;
+  }
 
   &-action {
     display: flex;
