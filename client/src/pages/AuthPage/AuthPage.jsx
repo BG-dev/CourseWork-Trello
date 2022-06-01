@@ -1,11 +1,13 @@
 import React, { useRef, useEffect } from "react";
 import { useFormik } from "formik";
-import { useHttp } from "../hooks/http.hook";
-import { useMessage } from "../hooks/message.hook";
-import { useAuth } from "../hooks/auth.hook.js";
+import { useHttp } from "../../hooks/http.hook";
+import { useMessage } from "../../hooks/message.hook";
+import { useAuth } from "../../hooks/auth.hook.js";
 import { useDispatch } from "react-redux";
-import { setUser } from "../redux/actions/user";
+import { setUser } from "../../redux/actions/user";
 import { NavLink, useNavigate } from "react-router-dom";
+
+import './AuthPage.scss'
 
 function AuthPage() {
   const message = useMessage();
@@ -54,28 +56,34 @@ function AuthPage() {
 
   return (
     <div className="auth">
-      <h2>Auth in system</h2>
+      <h2 className="auth__title">Sign In</h2>
       <form
-        className="feedback__form"
+        className="auth__form"
         ref={form}
         onSubmit={formik.handleSubmit}
       >
-        <label htmlFor="login">Login</label>
-        <input
-          type="text"
-          id="login"
-          name="login"
-          onChange={formik.handleChange}
-          value={formik.values.login}
-        />
-        <label htmlFor="password">Password</label>
-        <input
-          type="password"
-          id="password"
-          name="password"
-          onChange={formik.handleChange}
-          value={formik.values.password}
-        />
+        <div className="auth__form-container">
+          <label htmlFor="login">Username</label>
+          <input
+            type="text"
+            id="login"
+            name="login"
+            placeholder="Username"
+            onChange={formik.handleChange}
+            value={formik.values.login}
+          />
+        </div>
+        <div className="auth__form-container">
+          <label htmlFor="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Password"
+            onChange={formik.handleChange}
+            value={formik.values.password}
+          />
+        </div>
         <div className="row">
           <button
             className="btn waves-effect waves-light col"
@@ -83,7 +91,7 @@ function AuthPage() {
             disabled={loading}
             name="action"
           >
-            Login
+            Sign In
           </button>
           <NavLink
             to="/register"

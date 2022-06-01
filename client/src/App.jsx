@@ -4,7 +4,7 @@ import { Navbar } from "./components";
 import { useAuth } from "./hooks/auth.hook";
 import { useRoutes } from "./hooks/routes.hook";
 
-import "./scss/colorize.scss";
+// import "./scss/_colorize.scss";
 
 function App() {
   const { login, storageName } = useAuth();
