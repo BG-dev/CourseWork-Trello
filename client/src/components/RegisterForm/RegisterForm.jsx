@@ -41,15 +41,15 @@ function RegisterForm() {
           passwordRepeat: "",
         }}
         validationSchema={signUpSchema}
-        onSubmit={(values) => {
+        onSubmit={(values, actions) => {
           console.log(values);
           registerHandler(values);
-          // resetForm({
-          //   values: {
-          //     password: '',
-          //     passwordRepeat: ''
-          //   }
-          // })
+          actions.resetForm({
+            values: {
+              password: '',
+              passwordRepeat: ''
+            }
+          })
         }}
       >
         {() => (

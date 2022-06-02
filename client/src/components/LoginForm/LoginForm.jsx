@@ -53,13 +53,13 @@ function LoginForm() {
           password: "",
         }}
         validationSchema={signInSchema}
-        onSubmit={(values) => {
+        onSubmit={(values, actions) => {
           loginHandler(values);
-          // formik.resetForm({
-          //   values: {
-          //     password: ""
-          //   }
-          // });
+          actions.resetForm({
+            values: {
+              password: ""
+            }
+          });
         }}
       >
         {() => (
