@@ -7,6 +7,8 @@ import Badge from "./Badge/Badge";
 import Board from "./Board/Board";
 import CardsList from "./CardsList/CardsList";
 import Card from "./Card/Card";
+import LoginForm from "./LoginForm"
+import RegisterForm from "./RegisterForm"
 
 export {
   Navbar,
@@ -18,4 +20,6 @@ export {
   CardsList,
   CardModal,
   Card,
+  LoginForm,
+  RegisterForm,
 };

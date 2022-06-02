@@ -1,17 +1,2 @@
 [
-    {
-        "id": "4e9b53fc-8d98-4801-9733-cebad45cf241",
-        "login": "Nikita",
-        "password": "$2b$12$tQrPT093yO0EEuvEegoxIeKX7WHf1qSaqRA6Uy.8rAOH2cNkSDqWy"
-    },
-    {
-        "id": "54c7bdd6-e97d-4a8f-b33c-2d8fcc1faf45",
-        "login": "Kiril",
-        "password": "$2b$12$5Xmkb57VVrjVXsi09.vBI.b2daHyCi.Tv.UnKGlwMBdJrug9u5pEq"
-    },
-    {
-        "id": "d976c225-96ec-45d1-aad0-aa79a084301f",
-        "login": "Petya",
-        "password": "$2b$12$yMK/btxs.7wvwY8kmgQhdeIRYFOqG7Ae/SMTTFzIsDMkCk8DASceO"
-    }
 ]

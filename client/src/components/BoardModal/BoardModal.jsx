@@ -1,7 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
 import { useFormik } from "formik";
 import { useHttp } from "../../hooks/http.hook";
-import { useMessage } from "../../hooks/message.hook";
 import { Badge } from "../../components";
 
 import "./BoardModal.scss";
@@ -21,7 +20,6 @@ function BoardModal({ modalName }) {
 
   const { request, error, clearError } = useHttp();
   const [selectedColor, setSelectedColor] = useState(colors[0]);
-  const message = useMessage();
   const form = useRef();
   const formik = useFormik({
     initialValues: {
@@ -35,9 +33,8 @@ function BoardModal({ modalName }) {
   });
 
   useEffect(() => {
-    message(error);
     clearError();
-  }, [error, message, clearError]);
+  }, [error, clearError]);
 
   const addBoardHandler = async (values, color) => {
     if (!values.title || !values.description)
@@ -55,7 +52,6 @@ function BoardModal({ modalName }) {
       },
     });
     console.log(data);
-    message(data.message);
   };
 
   return (

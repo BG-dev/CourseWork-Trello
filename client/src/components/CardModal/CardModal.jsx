@@ -1,13 +1,11 @@
 import React, { useRef, useEffect } from "react";
 import { useFormik } from "formik";
 import { useHttp } from "../../hooks/http.hook";
-import { useMessage } from "../../hooks/message.hook";
 
 import "./CardModal.scss";
 
 function CardModal({ modalName, boardId, list }) {
   const { request, error, clearError } = useHttp();
-  const message = useMessage();
   const form = useRef();
   const formik = useFormik({
     initialValues: {
@@ -21,9 +19,8 @@ function CardModal({ modalName, boardId, list }) {
   });
 
   useEffect(() => {
-    message(error);
     clearError();
-  }, [error, message, clearError]);
+  }, [error, clearError]);
 
   const addBoardHandler = async (values) => {
     if (!values.title || !values.description)
@@ -42,7 +39,6 @@ function CardModal({ modalName, boardId, list }) {
       },
     });
     console.log(data);
-    message(data.message);
   };
 
   return (

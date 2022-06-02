@@ -2,7 +2,6 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import {
   AuthPage,
-  RegisterPage,
   ErrorPage,
   ProfilePage,
   HomePage,
@@ -25,8 +24,6 @@ export const useRoutes = (isAuthenticated) => {
 
   return (
     <Routes>
-      <Route path="/" element={<AuthPage />} />
-      <Route path="/register" element={<RegisterPage />} />
       <Route path="*" element={<AuthPage />} />
     </Routes>
   );

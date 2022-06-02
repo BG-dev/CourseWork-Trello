@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useHttp } from "../../hooks/http.hook";
-import { useMessage } from "../../hooks/message.hook";
 import { AddButton, BoardCard, BoardModal } from "../../components";
 import { useDialog } from "../../hooks/dialog.hook";
 
@@ -11,13 +10,11 @@ function MyBoards() {
 
   const [boards, setBoards] = useState(null);
   const { loading, request, error, clearError } = useHttp();
-  const message = useMessage();
   const dialog = useDialog();
 
   useEffect(() => {
-    message(error);
     clearError();
-  }, [error, message, clearError]);
+  }, [error, clearError]);
 
   useEffect(() => {
     request("/boards").then((data) => setBoards(data.boards));
