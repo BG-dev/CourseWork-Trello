@@ -1,10 +1,11 @@
-import React, { useRef, useEffect } from "react";
-import { useFormik } from "formik";
+import React, { useEffect } from "react";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useHttp } from "../../hooks/http.hook";
 import { useAuth } from "../../hooks/auth.hook.js";
 import { useDispatch } from "react-redux";
 import { setUser } from "../../redux/actions/user";
 import { NavLink, useNavigate } from "react-router-dom";
+import * as Yup from 'yup';
 
 import './LoginForm.scss'
 
@@ -14,25 +15,14 @@ function LoginForm() {
   const { login } = useAuth();
   const dispatch = useDispatch();
 
+  const signInSchema = Yup.object().shape({
+    username: Yup.string().min(3, 'Username is too short').required('Username is required'),
+    password: Yup.string().min(8, 'Password is too short').required('Password is required')
+  })
+
   useEffect(() => {
     clearError();
   }, [error, clearError]);
-
-  const form = useRef();
-  const formik = useFormik({
-    initialValues: {
-      username: "",
-      password: "",
-    },
-    onSubmit: (values) => {
-      loginHandler(values);
-      formik.resetForm({
-        values: {
-          password: ""
-        }
-      });
-    },
-  });
 
   const loginHandler = async (values) => {
     try {
@@ -57,56 +47,69 @@ function LoginForm() {
   return (
     <>
       <h2 className="auth__title">Sign In</h2>
-      <form
-        className="auth__form"
-        ref={form}
-        onSubmit={formik.handleSubmit}
+      <Formik
+        initialValues={{
+          username: "",
+          password: "",
+        }}
+        validationSchema={signInSchema}
+        onSubmit={(values) => {
+          loginHandler(values);
+          // formik.resetForm({
+          //   values: {
+          //     password: ""
+          //   }
+          // });
+        }}
       >
-        <div className="auth__form-container">
-          <label htmlFor="login">Username</label>
-          <input
-            type="text"
-            id="username"
-            name="username"
-            placeholder="Username"
-            onChange={formik.handleChange}
-            value={formik.values.username}
-          />
-        </div>
-        <div className="auth__form-container">
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            placeholder="Password"
-            onChange={formik.handleChange}
-            value={formik.values.password}
-          />
-        </div>
-        <div className="auth__form-control">
-          <button
+        {() => (
+          <Form
+          className="auth__form"
+        >
+          <div className="auth__form-container">
+            <label htmlFor="username">Username</label>
+            <Field
+              type="text"
+              id="username"
+              name="username"
+              placeholder="Username"
+            />
+            <ErrorMessage className="auth__form-error" component="span" name="username"/>
+          </div>
+          <div className="auth__form-container">
+            <label htmlFor="password">Password</label>
+            <Field
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Password"
+            />
+            <ErrorMessage className="auth__form-error" component="span" name="password"/>
+          </div>
+          <div className="auth__form-control">
+            <button
+                className="btn"
+                type="submit"
+                disabled={loading}
+            >
+              Sign In
+            </button>
+            <NavLink
+              to="/register"
               className="btn"
-              type="submit"
-              disabled={loading}
-              name="action"
-          >
-            Sign In
-          </button>
-          <NavLink
-            to="/register"
-            className="btn"
-          >
-            Create new account
+            >
+              Create new account
+            </NavLink>
+            <NavLink
+              to="/register"
+              className="auth__form-link"
+            >
+              Forgot password?
           </NavLink>
-          <NavLink
-            to="/register"
-            className="auth__form-link"
-          >
-            Forgot password?
-        </NavLink>
-        </div>
-      </form>
+          </div>
+        </Form>
+        )}
+      </Formik>
     </>
   );
 }
