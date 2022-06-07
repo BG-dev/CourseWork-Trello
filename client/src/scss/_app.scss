@@ -1,47 +1,48 @@
-@import '_variables';
-@import 'normalize';
+@import "_variables";
+@import "normalize";
 
-.container{
-    width: $container-width;
-    margin: auto;
+.container {
+  width: $container-width;
+  margin: auto;
 }
 
-label{
-    color: #000000;
-    font-size: 13px;
-    font-weight: 100;
+label {
+  color: #000000;
+  font-size: 13px;
+  font-weight: 100;
 }
 
-.btn{
-    display: inline;
-    background-color: $blue;
-    color: #FFFFFF;
-    padding: 10px 20px;
-    font-size: 16px;
-    font-family: 'Roboto', sans-serif;
-    font-weight: normal;
-    border: none;
-    border-radius: 4px;
-    box-shadow: 1px 2px 4px #000000;
+.btn {
+  display: inline;
+  cursor: pointer;
+  background-color: $blue;
+  color: #ffffff;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-family: "Roboto", sans-serif;
+  font-weight: normal;
+  border: none;
+  border-radius: 4px;
+  box-shadow: 1px 2px 4px #000000;
 }
 
-.btn:hover{
-    background-color: darken($color: $blue, $amount: 2%);
+.btn:hover {
+  background-color: darken($color: $blue, $amount: 2%);
 }
 
-.btn:active{
-    background-color: darken($color: $blue, $amount: 5%);
-    box-shadow: 1px 1px 4px #000000;
+.btn:active {
+  background-color: darken($color: $blue, $amount: 5%);
+  box-shadow: 1px 1px 4px #000000;
 }
 
-h2{
-    color: #000000;
+h2 {
+  color: #000000;
 }
 
-input{
-    height: 35px;
-    border-radius: 3px;
-    border: 1px solid #d3d3d3;
-    font-size: 14px;
-    padding: 7px;
+input {
+  height: 35px;
+  border-radius: 3px;
+  border: 1px solid #d3d3d3;
+  font-size: 14px;
+  padding: 7px;
 }
