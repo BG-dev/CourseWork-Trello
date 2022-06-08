@@ -43,7 +43,7 @@ async function loginUser(userData) {
     expiresIn: "1h",
   });
 
-  return { token, username: userData.login, userId: user.id };
+  return { token, username: userData.username, userId: user.id };
 }
 
 const findUser = (user) =>

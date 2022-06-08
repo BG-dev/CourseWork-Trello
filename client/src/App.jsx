@@ -15,15 +15,15 @@ function App() {
   useEffect(() => {
     const data = JSON.parse(localStorage.getItem(storageName));
 
-    if (data && data.token && data.userId && data.login)
-      login(data.token, data.login, data.userId);
+    if (data && data.token && data.userId && data.username)
+      login(data.token, data.username, data.userId);
   }, [user.token, login, storageName]);
 
   return (
-    <>
+    <div className="container">
       {isAuthenticated && <Navbar />}
-      <div className="container">{routes}</div>
-    </>
+      {routes}
+    </div>
   );
 }
 

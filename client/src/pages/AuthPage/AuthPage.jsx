@@ -1,19 +1,18 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import { LoginForm, RegisterForm } from "../../components"
+import { LoginForm, RegisterForm } from "../../components";
 
-
-import './AuthPage.scss'
+import "./AuthPage.scss";
 
 function AuthPage() {
-  
-
   return (
-    <div className="auth">
-      <Routes>
-        <Route path="/" element={<LoginForm />} />
-        <Route path="/register" element={<RegisterForm />} />
-      </Routes>
+    <div className="auth-wrapper">
+      <div className="auth">
+        <Routes>
+          <Route path="/" element={<LoginForm />} />
+          <Route path="/register" element={<RegisterForm />} />
+        </Routes>
+      </div>
     </div>
   );
 }

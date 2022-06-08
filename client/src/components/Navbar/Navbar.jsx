@@ -1,6 +1,10 @@
 import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useAuth } from "../../hooks/auth.hook";
+import { ReactComponent as HomeImage } from "../../images/home.svg";
+import { ReactComponent as ProfileImage } from "../../images/profile.svg";
+import { ReactComponent as BoardImage } from "../../images/board.svg";
+import { ReactComponent as LogoutImage } from "../../images/logout.svg";
 
 import "./Navbar.scss";
 
@@ -15,21 +19,32 @@ function Navbar() {
   };
 
   return (
-    <nav>
-      <div className="nav-wrapper blue-grey lighten-1">
-        <a href="/" className="brand-logo">
-          TimeM
-        </a>
-        <ul id="nav-mobile" className="right hide-on-med-and-down">
-          <li>
-            <NavLink to="/profile">Profile</NavLink>
+    <nav className="nav">
+      <div className="nav__list-wrapper">
+        <h2 className="nav__list-title">Account</h2>
+        <ul className="nav__list">
+          <li className="nav__list-item">
+            <NavLink className="nav__list-link" to="/">
+              <HomeImage className="nav__list-img" />
+              <span className="nav__list-text">Home</span>
+            </NavLink>
           </li>
-          <li>
-            <NavLink to="/boards">My boards</NavLink>
+          <li className="nav__list-item">
+            <NavLink className="nav__list-link" to="/profile">
+              <ProfileImage className="nav__list-img" />
+              <span className="nav__list-text">Profile</span>
+            </NavLink>
           </li>
-          <li>
-            <a href="/" onClick={logoutHandler}>
-              Logout
+          <li className="nav__list-item">
+            <NavLink className="nav__list-link" to="/boards">
+              <BoardImage className="nav__list-img" />
+              <span className="nav__list-text">Boards</span>
+            </NavLink>
+          </li>
+          <li className="nav__list-item">
+            <a href="/" className="nav__list-link" onClick={logoutHandler}>
+              <LogoutImage className="nav__list-img" />
+              <span className="nav__list-text">Logout</span>
             </a>
           </li>
         </ul>

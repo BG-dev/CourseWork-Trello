@@ -1,8 +1,20 @@
 [
     {
-        "id": "5ef54278-f854-4090-9d9b-58b0e19b1663",
+        "id": "310c6dcb-f995-4fd8-a628-57068bc5c488",
         "username": "NikitaAz",
         "email": "nik.azizoff2016@gmail.com",
-        "password": "$2b$12$cEhNEzRyjgDztyD2rwkkNe3Pwp3OS4vQHNPx.4kwplmqT0WXG2Ola"
+        "password": "$2b$12$sfBt6r9c6/LgrjxYf4M7.u6ysGJwHy7yAmpW//9L9fp4So52X4W.G"
+    },
+    {
+        "id": "d36f68dc-d9f4-48cd-9907-a92280b51ccb",
+        "username": "NikitaAziz",
+        "email": "nik.azizoff2013@yandex.ru",
+        "password": "$2b$12$/Ib08BhkRdg5PJEcjZZFqubYZ1wLyjN6XWgN0Q21OVe6i0sNmipsu"
+    },
+    {
+        "id": "bffb0941-7149-4990-8d9f-e85cbde3bc03",
+        "username": "Nikitos",
+        "email": "nik.azizoff2016@gmail.com",
+        "password": "$2b$12$..4TaO7FWGU8O4gkTk3w6eHCepK6iEWQ5eAEC0iadpOVGYLKDDWQ6"
     }
 ]
