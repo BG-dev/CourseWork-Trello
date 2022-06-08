@@ -1,6 +1,7 @@
 const express = require("express");
 const dotenv = require("dotenv");
 const helmet = require("helmet");
+const mongoose = require("mongoose");
 const bodyparser = require("body-parser");
 const boardsRoutes = require("./routes/boards");
 const usersRoutes = require("./routes/users");
@@ -13,6 +14,7 @@ dotenv.config();
 
 const app = express();
 const port = process.env.PORT || 8000;
+mongoose.connect(process.env.MONGO_URL);
 
 app.use(bodyparser.urlencoded({ extended: false }));
 app.use(bodyparser.json());

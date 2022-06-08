@@ -1,37 +1,32 @@
 const { validateUser, validateNewUser } = require("./validators/userValidator");
-const { writeDataToJsonFile } = require("./commandHelper");
-const users = require("../integration/databases/users.json");
 const bcrypt = require("bcrypt");
-const uuid = require("uuid");
 const jwt = require("jsonwebtoken");
-const { getElementFromArrayById } = require("./arrayService");
-
-const USERS_FILE = "users.json";
+const User = require("../integration/models/User");
 
 async function addUser(newUserData) {
   const { error } = validateNewUser(newUserData);
   if (error) throw new Error(error.details[0].message);
 
-  const candidate = findUser(newUserData);
-  if (candidate) throw new Error("This user already exists");
+  const candidate = await findUser(newUserData);
+  console.log(candidate);
+  if (candidate)
+    throw new Error("User with this username or email already exists");
 
   const hashedPassword = await bcrypt.hash(newUserData.password, 12);
   const newUser = {
-    id: uuid.v4(),
     username: newUserData.username,
     email: newUserData.email,
     password: hashedPassword,
   };
 
-  const newUsers = [...users, newUser];
-  writeDataToJsonFile(newUsers, USERS_FILE);
+  await User.create({ ...newUser });
 }
 
 async function loginUser(userData) {
   const { error } = validateUser(userData);
   if (error) throw new Error(error.details[0].message);
 
-  const user = findUser(userData);
+  const user = await findUserByUsername(userData.username);
 
   if (!user) throw new Error("This user no exists");
 
@@ -46,12 +41,24 @@ async function loginUser(userData) {
   return { token, username: userData.username, userId: user.id };
 }
 
-const findUser = (user) =>
-  users.find(
-    (elem) => elem.username.toLowerCase() === user.username.toLowerCase()
-  );
+const findUser = async (user) =>
+  await User.findOne({
+    $or: [
+      {
+        username: user.username,
+      },
+      {
+        email: user.email,
+      },
+    ],
+  });
 
-const findUserById = (userId) => getElementFromArrayById(users, userId);
+const findUserByUsername = async (username) =>
+  await User.findOne({
+    username,
+  });
+
+const findUserById = async (userId) => await User.findById(userId);
 
 module.exports = {
   addUser,
