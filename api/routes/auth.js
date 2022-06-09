@@ -7,13 +7,13 @@ const router = express.Router();
 router.post("/register", async (req, res, next) => {
   try {
     const { username, email, password } = req.body;
-    const user = {
+    const newUser = {
       username,
       email,
       password,
     };
 
-    await addUser(user);
+    const user = await addUser(newUser);
     const message = `User ${user.username} was created`;
     logger.info(message);
     res.status(201).send({ message });

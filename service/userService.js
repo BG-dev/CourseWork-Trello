@@ -1,14 +1,17 @@
 const { validateUser, validateNewUser } = require("./validators/userValidator");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const User = require("../integration/models/User");
+const {
+  findUser,
+  findUserByUsername,
+  createUser,
+} = require("../integration/userIntegration");
 
 async function addUser(newUserData) {
   const { error } = validateNewUser(newUserData);
   if (error) throw new Error(error.details[0].message);
 
   const candidate = await findUser(newUserData);
-  console.log(candidate);
   if (candidate)
     throw new Error("User with this username or email already exists");
 
@@ -19,7 +22,8 @@ async function addUser(newUserData) {
     password: hashedPassword,
   };
 
-  await User.create({ ...newUser });
+  const user = await createUser(newUser);
+  return user;
 }
 
 async function loginUser(userData) {
@@ -41,27 +45,7 @@ async function loginUser(userData) {
   return { token, username: userData.username, userId: user.id };
 }
 
-const findUser = async (user) =>
-  await User.findOne({
-    $or: [
-      {
-        username: user.username,
-      },
-      {
-        email: user.email,
-      },
-    ],
-  });
-
-const findUserByUsername = async (username) =>
-  await User.findOne({
-    username,
-  });
-
-const findUserById = async (userId) => await User.findById(userId);
-
 module.exports = {
   addUser,
   loginUser,
-  findUserById,
 };

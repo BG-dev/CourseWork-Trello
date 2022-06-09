@@ -1,12 +1,59 @@
-.color-image {
-  height: 150px;
-}
+@import "../../scss/variables";
 
-.card {
+$card-radius: 15px;
+
+.board-card {
   width: 325px;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
+  border: none;
+  border-radius: $card-radius;
+  background-color: #ffffff;
+
+  // .color-image {
+  //   height: 150px;
+  //   background-color: $pink;
+  // }
+
+  &__info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 30px;
+    font-weight: 100;
+    p {
+      font-size: 14px;
+    }
+  }
+
+  &__avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 100px;
+    background-color: #000000;
+  }
+
+  &__author {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  &__image {
+    background-color: $pink;
+    height: 150px;
+    border-top-left-radius: $card-radius;
+    border-top-right-radius: $card-radius;
+  }
+
+  &__title {
+    display: block;
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
 
   &__content {
+    padding: 15px;
     overflow-wrap: break-word;
   }
 

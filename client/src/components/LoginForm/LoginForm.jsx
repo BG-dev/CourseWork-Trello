@@ -59,11 +59,7 @@ function LoginForm() {
         validationSchema={signInSchema}
         onSubmit={(values, actions) => {
           loginHandler(values);
-          actions.resetForm({
-            values: {
-              password: "",
-            },
-          });
+          actions.setFieldValue("password", "");
         }}
       >
         {() => (
