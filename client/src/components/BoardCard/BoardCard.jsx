@@ -1,11 +1,16 @@
 import React from "react";
+import colors from "../../service/colors";
+import useDate from "../../hooks/date.hook";
 
 import "./BoardCard.scss";
 
 function BoardCard({ board }) {
+  const color = colors[board.color];
+  const date = useDate(board.createAt);
+
   return (
     <div className="board-card">
-      <div className="board-card__image">
+      <div style={{ backgroundColor: color }} className="board-card__image">
         {/* <div className={`color-image color-${board.color}`}></div> */}
       </div>
       <div className="board-card__content">
@@ -15,7 +20,7 @@ function BoardCard({ board }) {
             <div className="board-card__avatar"></div>
             <p>{board.author}</p>
           </div>
-          <p className="board-card__date">23 September 2021</p>
+          <p className="board-card__date">{date}</p>
         </div>
       </div>
     </div>
