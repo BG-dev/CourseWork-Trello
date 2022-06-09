@@ -3,9 +3,10 @@
 $card-radius: 15px;
 
 .board-card {
+  display: flex;
+  flex-direction: column;
   width: 325px;
-  margin-bottom: 40px;
-  border: none;
+  height: 100%;
   border-radius: $card-radius;
   background-color: #ffffff;
 
@@ -18,7 +19,6 @@ $card-radius: 15px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-top: 30px;
     font-weight: 100;
     p {
       font-size: 14px;
@@ -47,13 +47,17 @@ $card-radius: 15px;
 
   &__title {
     display: block;
-    font-size: 32px;
+    font-size: 30px;
     font-weight: bold;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
   }
 
   &__content {
-    padding: 15px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 12px;
     overflow-wrap: break-word;
   }
 

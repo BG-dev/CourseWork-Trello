@@ -20,7 +20,6 @@ function MyBoards() {
 
   return (
     <div className="boards">
-      <h2>Boards</h2>
       <ul className="boards__list">
         {!loading &&
           boards &&

@@ -1,9 +1,10 @@
 [
   {
     "id": "628377430eecc718352f28e8",
-    "name": "New board",
+    "name": "New boardNew boardNew boardNew board",
     "desc": "i should create new project. i should create new project. i should create new project.",
     "color": "green",
+    "author": "NikitaAz",
     "createAt": "17.5.2022, 13:21:55"
   },
   {
@@ -11,13 +12,15 @@
     "name": "Trello",
     "desc": "I want to create huge company",
     "color": "red",
+    "author": "SergeyPik",
     "createAt": "17.5.2022, 13:32:53"
   },
   {
     "id": "62837b88920e6f672c03c985",
     "name": "Test board",
-    "desc": "dashed dasd ad das d sadadassad d dsadsadasd.  dasdsadada. dasdasdasddasdad.  dasdsada.   dasd",
+    "desc": "dashed dasdashed dasdashed dasdashed dasdashed dasdashed dasdashed dasdashed dasdashed dasdashed dasdashed dasdashed dasdashed dasdashed dasdashed dasdashed dasdashed dasdashed dasdashed dasdashed das",
     "color": "blue",
+    "author": "PetyaPechko",
     "createAt": "17.5.2022, 13:40:8"
   },
   {
@@ -25,6 +28,7 @@
     "name": "dioikl;dsa",
     "desc": "dsadsadsa",
     "color": "sky",
+    "author": "Kill_man2013",
     "createAt": "17.5.2022, 17:12:55"
   }
 ]
