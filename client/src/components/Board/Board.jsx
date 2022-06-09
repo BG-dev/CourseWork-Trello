@@ -1,32 +1,32 @@
-import React, { useState, useCallback, useEffect } from "react";
-import CardsList from "../CardsList/CardsList";
-import { useHttp } from "../../hooks/http.hook";
+import React from "react";
+// import CardsList from "../CardsList/CardsList";
+// import { useHttp } from "../../hooks/http.hook";
 
 import "./Board.scss";
 
 function Board({ board }) {
-  const { loading, request } = useHttp();
-  const [boardLists, setBoardLists] = useState(null);
+  // const { loading, request } = useHttp();
+  // const [boardLists, setBoardLists] = useState(null);
 
-  const getBoard = useCallback(async () => {
-    try {
-      const fetched = await request(`/boards/${board.id}/lists`);
-      setBoardLists(fetched.boardLists);
-    } catch (error) {
-      console.log(error);
-    }
-  }, [board.id]);
+  // const getBoard = useCallback(async () => {
+  //   try {
+  //     const fetched = await request(`/boards/${board.id}/lists`);
+  //     setBoardLists(fetched.boardLists);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }, [board.id]);
 
-  useEffect(() => {
-    getBoard();
-  }, [getBoard]);
+  // useEffect(() => {
+  //   getBoard();
+  // }, [getBoard]);
 
-  if (loading) return <h1>Loading...</h1>;
+  // if (loading) return <h1>Loading...</h1>;
 
   return (
     <div className="board">
       <h1 className="board__name">{board && board.name}</h1>
-      {boardLists && (
+      {/* {boardLists && (
         <ul className="board__lists">
           {boardLists.map((boardList) => (
             <li id={`${boardList.name}-list`} key={boardList.id}>
@@ -34,7 +34,7 @@ function Board({ board }) {
             </li>
           ))}
         </ul>
-      )}
+      )} */}
     </div>
   );
 }

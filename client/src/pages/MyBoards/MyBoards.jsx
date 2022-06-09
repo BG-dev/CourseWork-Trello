@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useHttp } from "../../hooks/http.hook";
 import { BoardCard } from "../../components";
+import { Link } from "react-router-dom";
 
 import "./MyBoards.scss";
 
@@ -25,7 +26,9 @@ function MyBoards() {
           boards &&
           boards.map((board) => (
             <li className="boards__list-item" key={board.id}>
-              <BoardCard board={board} />
+              <Link to={`/boards/${board.id}`}>
+                <BoardCard board={board} />
+              </Link>
             </li>
           ))}
       </ul>
