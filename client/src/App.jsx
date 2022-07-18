@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
-import { Navbar } from "./components";
+import { Footer, Navbar } from "./components";
 import { useAuth } from "./hooks/auth.hook";
 import { useRoutes } from "./hooks/routes.hook";
 
@@ -23,6 +23,7 @@ function App() {
     <div className="container">
       {isAuthenticated && <Navbar />}
       {routes}
+      <Footer />
     </div>
   );
 }

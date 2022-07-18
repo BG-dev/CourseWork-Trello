@@ -1,34 +1,34 @@
 [
   {
-    "id": "628377430eecc718352f28e8",
-    "name": "New boardNew boardNew boardNew board",
-    "desc": "i should create new project. i should create new project. i should create new project.",
-    "color": "green",
+    "id": "62d30cc2fa692050662ec269",
+    "name": "First Project",
+    "desc": "Hi, developers!",
+    "color": "pink",
     "author": "NikitaAz",
-    "createAt": "17.5.2022, 13:21:55"
+    "createAt": "10.7.2022, 22:8:50"
   },
   {
-    "id": "628379d5296b8079fddd67aa",
-    "name": "Trello",
-    "desc": "I want to create huge company",
-    "color": "red",
-    "author": "SergeyPik",
-    "createAt": "30.3.2021, 13:32:53"
-  },
-  {
-    "id": "62837b88920e6f672c03c985",
-    "name": "Test board",
-    "desc": "dashed dasdashed dasdashed dasdashed dasdashed dasdashed dasdashed dasdashed dasdashed dasdashed dasdashed dasdashed dasdashed dasdashed dasdashed dasdashed dasdashed dasdashed dasdashed dasdashed das",
-    "color": "blue",
-    "author": "PetyaPechko",
-    "createAt": "1.3.2020, 13:40:8"
-  },
-  {
-    "id": "6283ad66f62cef57a09bcd1a",
-    "name": "dioikl;dsa",
-    "desc": "dsadsadsa",
+    "id": "62d30ce030cd8541631e0d1f",
+    "name": "Test",
+    "desc": "Hi, developers!",
     "color": "sky",
-    "author": "Kill_man2013",
-    "createAt": "11.4.2023, 17:12:55"
+    "author": "Killer_man",
+    "createAt": "13.7.2022, 22:9:20"
+  },
+  {
+    "id": "62d30cf4dd2339355e50c4da",
+    "name": "BNTU project",
+    "desc": "Hi, developers!",
+    "color": "red",
+    "author": "Some_Person",
+    "createAt": "14.7.2022, 22:9:40"
+  },
+  {
+    "id": "62d30d098714ab25c725b81c",
+    "name": "iTechArt project",
+    "desc": "Hi, developers!",
+    "color": "green",
+    "author": "Kirill2002",
+    "createAt": "15.7.2022, 22:10:1"
   }
 ]

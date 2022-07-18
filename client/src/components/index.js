@@ -1,14 +1,15 @@
 import Navbar from "./Navbar";
-import BoardCard from "./BoardCard/BoardCard";
-import AddButton from "./AddButton/AddButton";
-import BoardModal from "./BoardModal/BoardModal";
-import CardModal from "./CardModal/CardModal";
-import Badge from "./Badge/Badge";
-import Board from "./Board/Board";
-import CardsList from "./CardsList/CardsList";
-import Card from "./Card/Card";
+import BoardCard from "./BoardCard";
+import AddButton from "./AddButton";
+import BoardModal from "./BoardModal";
+import CardModal from "./CardModal";
+import Badge from "./Badge";
+import Board from "./Board";
+import CardsList from "./CardsList";
+import Card from "./Card";
 import LoginForm from "./LoginForm";
 import RegisterForm from "./RegisterForm";
+import Footer from "./Footer";
 
 export {
   Navbar,
@@ -22,4 +23,5 @@ export {
   Card,
   LoginForm,
   RegisterForm,
+  Footer,
 };
