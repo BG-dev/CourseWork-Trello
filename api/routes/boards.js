@@ -2,13 +2,12 @@ const express = require("express");
 const { authUser, authRole } = require("../middlewares/auth");
 const logger = require("../middlewares/logger");
 const {
-  getBoards,
   getBoardById,
-  addBoard,
   updateBoard,
   deleteBoard,
   getListsByBoardId,
 } = require("../../service/boardService");
+const { addBoard, getBoards } = require("../../integration/boardIntegration");
 
 const router = express.Router();
 

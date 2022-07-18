@@ -6,12 +6,11 @@ import "./BoardCard.scss";
 
 function BoardCard({ board }) {
   const color = colors[board.color];
-  const date = useDate(board.createAt);
+  const date = useDate(board.createdAt);
 
   return (
     <div className="board-card">
       <div style={{ backgroundColor: color }} className="board-card__image">
-        {/* <div className={`color-image color-${board.color}`}></div> */}
       </div>
       <div className="board-card__content">
         <span className="board-card__title">{board.name}</span>

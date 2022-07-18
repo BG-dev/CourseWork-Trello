@@ -18,15 +18,14 @@ function MyBoards() {
   }, []);
 
   if (loading) return <h1>Loading...</h1>;
-
   return (
     <div className="boards">
       <ul className="boards__list">
         {!loading &&
           boards &&
           boards.map((board) => (
-            <li className="boards__list-item" key={board.id}>
-              <Link to={`/boards/${board.id}`}>
+            <li className="boards__list-item" key={board._id}>
+              <Link to={`/boards/${board._id}`}>
                 <BoardCard board={board} />
               </Link>
             </li>

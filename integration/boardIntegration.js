@@ -1,5 +1,20 @@
 const axios = require("axios");
-const getDateNow = require("../service/dateService");
+const Board = require("../integration/models/Board");
+const { validateBoard } = require("../service/validators/boardValidator");
+
+async function addBoard(newBoardData) {
+  const { error } = validateBoard(newBoardData);
+  if (error) throw new Error(error.details[0].message);
+
+  const board = await createBoardInTrello(newBoardData);
+  createBoard(board);
+}
+
+async function getBoards() {
+  const boards = await Board.find();
+
+  return boards;
+}
 
 async function createBoardInTrello(boardData) {
   if (!boardData) throw new Error("Board data is undefined");
@@ -12,11 +27,10 @@ async function createBoardInTrello(boardData) {
     token: process.env.TOKEN,
   });
 
-  const { id } = response.data;
+  const trelloBoardId = response.data.id;
   return {
-    id,
+    trelloBoardId,
     ...boardData,
-    createAt: getDateNow(),
   };
 }
 
@@ -47,8 +61,11 @@ async function deleteBoardFromTrello(id) {
   });
 }
 
+const createBoard = async (newBoard) => await Board.create({ ...newBoard });
+
 module.exports = {
-  createBoardInTrello,
+  addBoard,
+  getBoards,
   updateBoardInTrello,
   deleteBoardFromTrello,
 };

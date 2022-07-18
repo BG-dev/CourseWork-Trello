@@ -1,6 +1,4 @@
-const { validateBoard } = require("./validators/boardValidator");
 const {
-  createBoardInTrello,
   updateBoardInTrello,
   deleteBoardFromTrello,
 } = require("../integration/boardIntegration");
@@ -23,24 +21,10 @@ async function getBoardById(id) {
   return board;
 }
 
-async function getBoards() {
-  const boardsList = await getBoardsFromFile();
-
-  return boardsList;
-}
-
 async function getListsByBoardId(id) {
   const boardLists = await getBoardListsById(id);
 
   return boardLists;
-}
-
-async function addBoard(newBoardData) {
-  const { error } = validateBoard(newBoardData);
-  if (error) throw new Error(error.details[0].message);
-
-  const board = await createBoardInTrello(newBoardData);
-  addBoardToFile(board);
 }
 
 async function updateBoard(boardId, newBoardData) {
@@ -60,12 +44,12 @@ async function deleteBoard(boardId) {
   deleteBoardCardsFromFile(boardId);
 }
 
-function addBoardToFile(board) {
-  if (!board) throw new Error("Board is undefined");
+// function addBoardToFile(board) {
+//   if (!board) throw new Error("Board is undefined");
 
-  const updatedBoards = [...boards, board];
-  writeDataToJsonFile(updatedBoards, BOARDS_FILE);
-}
+//   const updatedBoards = [...boards, board];
+//   writeDataToJsonFile(updatedBoards, BOARDS_FILE);
+// }
 
 function getBoardsFromFile() {
   if (!boards || boards.length === 0) throw new Error("Boards list is empty");
@@ -102,10 +86,8 @@ async function deleteBoardCardsFromFile(boardId) {
 }
 
 module.exports = {
-  getBoards,
   getBoardById,
   getListsByBoardId,
-  addBoard,
   updateBoard,
   deleteBoard,
 };
