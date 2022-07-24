@@ -1,20 +1,20 @@
 const express = require("express");
 const { addUser, loginUser } = require("../../service/userService");
 const logger = require("../middlewares/logger");
+const verifyJWT = require("../middlewares/verifyJWT");
 
 const router = express.Router();
 
+router.get("/isAuthUser", verifyJWT, (req, res) => {
+  return res.json({ isLoggedIn: true, username: req.user.username });
+});
+
 router.post("/register", async (req, res, next) => {
   try {
-    const { username, email, password } = req.body;
-    const newUser = {
-      username,
-      email,
-      password,
-    };
+    const user = req.body;
 
-    const user = await addUser(newUser);
-    const message = `User ${user.username} was created`;
+    const newUser = await addUser(user);
+    const message = `User ${newUser.username} was created`;
     logger.info(message);
     res.status(201).send({ message });
   } catch (error) {
@@ -24,17 +24,13 @@ router.post("/register", async (req, res, next) => {
 
 router.post("/login", async (req, res, next) => {
   try {
-    const { username, password } = req.body;
-    const user = {
-      username,
-      password,
-    };
+    const user = req.body;
 
-    const loginData = await loginUser(user);
+    const token = await loginUser(user);
     const message = `User ${user.username} was logged in`;
     logger.info(message);
     res.status(201).send({
-      ...loginData,
+      token,
       message,
     });
   } catch (error) {

@@ -1,13 +1,6 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import {
-  AuthPage,
-  ErrorPage,
-  ProfilePage,
-  HomePage,
-  MyBoards,
-  BoardPage,
-} from "../pages";
+import { AuthPage, ErrorPage, ProfilePage, HomePage, MyBoards } from "../pages";
 
 export const useRoutes = (isAuthenticated) => {
   if (isAuthenticated) {
@@ -16,7 +9,6 @@ export const useRoutes = (isAuthenticated) => {
         <Route path="/" element={<HomePage />} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/boards" element={<MyBoards />} />
-        <Route path="/boards/:id" element={<BoardPage />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     );

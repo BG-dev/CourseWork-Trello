@@ -9,7 +9,7 @@ function AuthPage() {
     <div className="auth-wrapper">
       <div className="auth">
         <Routes>
-          <Route path="/" element={<LoginForm />} />
+          <Route path="/login" element={<LoginForm />} />
           <Route path="/register" element={<RegisterForm />} />
         </Routes>
       </div>

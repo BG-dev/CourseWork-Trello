@@ -1,9 +1,5 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import { useHttp } from "../../hooks/http.hook";
-import { useAuth } from "../../hooks/auth.hook.js";
-import { useDispatch } from "react-redux";
-import { setUser } from "../../redux/actions/user";
 import { NavLink, useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 
@@ -11,9 +7,6 @@ import "./LoginForm.scss";
 
 function LoginForm() {
   const navigate = useNavigate();
-  const { loading, request, error, clearError } = useHttp();
-  const { login } = useAuth();
-  const dispatch = useDispatch();
 
   const signInSchema = Yup.object().shape({
     username: Yup.string()
@@ -24,23 +17,11 @@ function LoginForm() {
       .required("Password is required"),
   });
 
-  useEffect(() => {
-    clearError();
-  }, [error, clearError]);
-
   const loginHandler = async (values) => {
     try {
       if (!values.username || !values.password)
         throw new Error("Username or password is empty");
-      const data = await request("/api/auth/login", "POST", { ...values });
-      login(data.token, data.username, data.userId);
-      dispatch(
-        setUser({
-          token: data.token,
-          userId: data.userId,
-          username: data.username,
-        })
-      );
+      // const data = await request("/api/auth/login", "POST", { ...values });
 
       navigate("/profile");
     } catch (error) {
@@ -93,7 +74,7 @@ function LoginForm() {
               />
             </div>
             <div className="auth__form-control">
-              <button className="btn" type="submit" disabled={loading}>
+              <button className="btn" type="submit">
                 Sign In
               </button>
               <NavLink to="/register" className="btn">

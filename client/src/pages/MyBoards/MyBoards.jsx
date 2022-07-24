@@ -1,28 +1,18 @@
-import React, { useState, useEffect } from "react";
-import { useHttp } from "../../hooks/http.hook";
+import React from "react";
 import { BoardCard } from "../../components";
 import { Link } from "react-router-dom";
 
 import "./MyBoards.scss";
 
 function MyBoards() {
-  const [boards, setBoards] = useState(null);
-  const { loading, request, error, clearError } = useHttp();
+  const boards = [];
+  // const [boards, setBoards] = useState(null);
 
-  useEffect(() => {
-    clearError();
-  }, [error, clearError]);
-
-  useEffect(() => {
-    request("/boards").then((data) => setBoards(data.boards));
-  }, []);
-
-  if (loading) return <h1>Loading...</h1>;
+  // if (loading) return <h1>Loading...</h1>;
   return (
     <div className="boards">
       <ul className="boards__list">
-        {!loading &&
-          boards &&
+        {boards &&
           boards.map((board) => (
             <li className="boards__list-item" key={board._id}>
               <Link to={`/boards/${board._id}`}>

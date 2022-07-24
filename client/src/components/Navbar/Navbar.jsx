@@ -1,6 +1,5 @@
 import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import { useAuth } from "../../hooks/auth.hook";
 import { ReactComponent as HomeImage } from "../../images/home.svg";
 import { ReactComponent as ProfileImage } from "../../images/profile.svg";
 import { ReactComponent as BoardImage } from "../../images/board.svg";
@@ -9,12 +8,10 @@ import { ReactComponent as LogoutImage } from "../../images/logout.svg";
 import "./Navbar.scss";
 
 function Navbar() {
-  const { logout } = useAuth();
   const navigate = useNavigate();
 
   const logoutHandler = (event) => {
     event.preventDefault();
-    logout();
     navigate("/");
   };
 

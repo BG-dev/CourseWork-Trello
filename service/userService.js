@@ -38,11 +38,9 @@ async function loginUser(userData) {
 
   if (!isMatch) throw new Error("Password is incorrect");
 
-  const token = jwt.sign({ userId: user.id }, process.env.JWT_SECRET, {
-    expiresIn: "1h",
-  });
+  const token = user.generateAuthToken();
 
-  return { token, username: userData.username, userId: user.id };
+  return token;
 }
 
 module.exports = {

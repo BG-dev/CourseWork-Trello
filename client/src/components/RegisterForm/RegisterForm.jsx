@@ -1,13 +1,12 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import { useHttp } from "../../hooks/http.hook";
 import { NavLink, useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 
 import "./RegisterForm.scss";
+// import { log } from "winston";
 
 function RegisterForm() {
-  const { loading, request, error, clearError } = useHttp();
   const navigate = useNavigate();
 
   const signUpSchema = Yup.object().shape({
@@ -24,14 +23,11 @@ function RegisterForm() {
       .oneOf([Yup.ref("password"), null], "Passwords must match"),
   });
 
-  useEffect(() => {
-    clearError();
-  }, [error, clearError]);
-
   const registerHandler = async (values) => {
     try {
-      await request("/api/auth/register", "POST", { ...values });
-      navigate("/");
+      console.log(values);
+      // await request("/api/auth/register", "POST", { ...values });
+      navigate("/login");
     } catch (error) {
       console.log(error);
     }
@@ -108,11 +104,11 @@ function RegisterForm() {
               />
             </div>
             <div className="auth__form-control">
-              <button className="btn" type="submit" disabled={loading}>
+              <button className="btn" type="submit">
                 Sign Up
               </button>
               <span className="auth__form-text">Already have an account?</span>
-              <NavLink to="/" className="auth__form-link">
+              <NavLink to="/login" className="auth__form-link">
                 Sign In
               </NavLink>
             </div>
